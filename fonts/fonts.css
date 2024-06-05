@@ -11,5 +11,4 @@
   src: url(./Inter-Variable.woff2) format(woff supports variations),
     url(./Inter-Variable.woff2) format(woff-variations);
   display: swap;
-  font-weight: 465 768;
 }

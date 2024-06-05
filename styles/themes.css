@@ -6,11 +6,12 @@
 */
 
 :root.theme-light {
-  --bg-color: var(--white); /* #000 */
-  --main-color: var(--black); /* #00CC14 */
+  --bg-color: var(--white);
+  --main-color: var(--black);
   --pointer-theme: url(../images/pointer_animation_light.png);
-
-  --bg: linear-gradient(#E7E7E7, transparent),
+  --text-weight: 400;
+  --title-weight: 700;
+  --bg: linear-gradient(#e7e7e7, transparent),
     repeating-linear-gradient(
       var(--bg-color),
       var(--bg-color) 2px,
@@ -27,10 +28,11 @@
 }
 
 :root.theme-dark {
-  --bg-color: var(--black); /* #000 */
-  --main-color: var(--green); /* #00CC14 */
+  --bg-color: var(--black);
+  --main-color: var(--green);
   --pointer-theme: url(../images/pointer_animation_dark.png);
-
+  --text-weight: 465;
+  --title-weight: 785;
   --bg: repeating-linear-gradient(
       90deg,
       transparent,
@@ -41,52 +43,56 @@
     repeating-linear-gradient(
       transparent,
       transparent 2px,
-      var(--main-color) 2px,
-      var(--main-color) 4px
-    );
+      var(--bg-color) 2px,
+      var(--bg-color) 4px
+    ),
+    linear-gradient(#007f0c, #004306);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg-color: var(--white); /* #000 */
-    --main-color: var(--black); /* #00CC14 */
+    --bg-color: var(--white);
+    --main-color: var(--black);
     --pointer-theme: url(../images/pointer_animation_light.png);
-
-    --bg: linear-gradient(#E7E7E7, transparent),
-    repeating-linear-gradient(
-      var(--bg-color),
-      var(--bg-color) 2px,
-      transparent 2px,
-      transparent 4px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 2px,
-      var(--bg-color) 2px,
-      var(--bg-color) 4px
-    );
+    --text-weight: 400;
+    --title-weight: 700;
+    --bg: linear-gradient(#e7e7e7, transparent),
+      repeating-linear-gradient(
+        var(--bg-color),
+        var(--bg-color) 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        var(--bg-color) 2px,
+        var(--bg-color) 4px
+      );
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: var(--black); /* #000 */
-    --main-color: var(--green); /* #00CC14 */
+    --bg-color: var(--black);
+    --main-color: var(--green);
     --pointer-theme: url(../images/pointer_animation_dark.png);
-
+    --text-weight: 465;
+    --title-weight: 785;
     --bg: repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 2px,
-      var(--bg-color) 2px,
-      var(--bg-color) 4px
-    ),
-    repeating-linear-gradient(
-      transparent,
-      transparent 2px,
-      var(--main-color) 2px,
-      var(--main-color) 4px
-    );
+        90deg,
+        transparent,
+        transparent 2px,
+        var(--bg-color) 2px,
+        var(--bg-color) 4px
+      ),
+      repeating-linear-gradient(
+        transparent,
+        transparent 2px,
+        var(--bg-color) 2px,
+        var(--bg-color) 4px
+      ),
+      linear-gradient(#007f0c, #004306);
   }
 }

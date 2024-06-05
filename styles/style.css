@@ -13,6 +13,48 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
+.button {
+  position: relative;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 14px;
+  font-weight: var(--text-weight);
+  line-height: 90%;
+  color: var(--main-color);
+  transition: color 0.5s ease-in-out;
+  background-color: transparent;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.button:hover {
+  color: var(--bg-color);
+  cursor: pointer;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  block-size: 100%;
+  background-color: var(--main-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: -1;
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button:focus {
+  outline: 0 none;
+}
+
+.button:focus-visible {
+  outline: 0 none;
+  box-shadow: 2px 2px 0 var(--main-color);
+}
 
 .page {
   min-inline-size: 320px;
@@ -22,6 +64,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-color: var(--black);
   background-attachment: fixed;
   background-image: var(--bg);
 }
@@ -32,6 +76,7 @@
 }
 
 .header {
+  max-inline-size: 700px;
   inline-size: 100%;
   display: flex;
   flex-direction: column;
@@ -72,8 +117,8 @@
   position: relative;
   border: 0px none;
   padding: 1px;
-  font-family: "Press Start 2P", sans-serif;
   font-size: 14px;
+  font-family: "Press Start 2P", sans-serif;
   text-transform: uppercase;
   color: var(--main-color);
   background-color: transparent;
@@ -106,29 +151,26 @@
   animation: underline_animation .5s ease forwards;
 }
 
-@keyframes underline_animation {
-  to {
-    transform: scaleX(1);
-  }
-}
-
 .theme-menu__button[disabled="true"] {
-  color: var(--main-color);
   filter: opacity(60%);
 }
 
 .theme-menu__button[disabled="true"]::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: -16px;
+  inset: 0px -20px;
   inline-size: 14px;
   block-size: 14px;
   background-image: var(--pointer-theme);
   background-position: center;
   background-repeat: no-repeat;
-  color: var(--main-color);
   animation: arrow_movement .5s infinite ease-in-out alternate;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-inline-size: 696px;
 }
 
 .card:not(:last-of-type) {
@@ -137,31 +179,285 @@
 
 .card__title {
   margin: 4px 10px 6px;
-  font-family: 'Inter-Variable', sans-serif;
-  font-size: 18px;
-  line-height: 21.78px;
-  font-weight: bold;
-  color: var(--main-color);
+  font-weight: var(--title-weight);
 }
 
 .card__picture {
   position: relative;
-  max-width: 395px;
+  max-block-size: 686px;
+  border-block-start: 2px solid var(--main-color);
+  border-block-end: 2px solid var(--main-color);
+  overflow: hidden;
 }
 
 .card__image-title {
   position: absolute;
   top: 25px;
   right: 13px;
-  
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 14px;
+  font-weight: var(--text-weight);
+  color: var(--main-color);
+  -webkit-text-stroke: 1px var(--bg-color);
+  mix-blend-mode: hard-light;
+  filter: opacity(50%);
 }
 
 .card__image {
-  width: 100%;
+  inline-size: 100%;
+  block-size: 100vw;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__image_hr_60 {
+  filter: hue-rotate(60deg);
+}
+
+.card__image_hr_225 {
+  filter: hue-rotate(225deg);
+}
+
+.card__image_sat_0-25 {
+  filter: saturate(0.25);
+}
+
+.card__image_sat_2-00 {
+  filter: saturate(2);
+}
+
+.card__image_hr_225_sat_2-00 {
+  filter: hue-rotate(225deg) saturate(2);
+}
+
+.card__image_hr_225_bri_0-50 {
+  filter: hue-rotate(225deg) brightness(0.5);
+}
+
+.card__image_hr_120_bri_1-50_sat_1-50 {
+  filter: hue-rotate(120deg) brightness(1.5) saturate(1.5);
+}
+
+.card__image_gr_0-6_bri_1-20_cont_1-20 {
+  filter: grayscale(0.6) brightness(1.2) contrast(1.2);
+}
+
+.card__image_bl_2px_cont_1-5_sep_1_inv_0-7 {
+  filter: blur(2px) contrast(1.5) sepia(1) invert(.7);
+}
+
+.card__text,
+.card__custom-text,
+.card__title {
+  font-family: 'Inter-Variable', sans-serif;
+  font-size: 18px;
+  line-height: 21.78px;
+  color: var(--main-color);
+}
+
+.card__text {
+  margin: 25px 25px 0px;
+  font-weight: var(--text-weight);
+}
+
+.card__custom-text {
+  margin: 25px;
+  font-weight: var(--text-weight);
+}
+
+.card__controls {
+  display: flex;
+  align-items: center;
+  margin: 0px 25px 25px auto;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: 0 none;
+  padding: 0px;
+  margin-inline-end: 12px;
+}
+
+.card__icon-button:hover {
+  cursor: pointer;
+}
+
+.card__icon-button:focus {
+  outline: 0 none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--main-color);
+  outline-offset: -1px;
+}
+
+.card__like-button {
+  inline-size: 130px;
+  padding: 12.5px 0px;
+  border: 2px solid var(--main-color);
+}
+
+.footer {
+  margin: 50px 0px 100px;
+}
+
+.footer__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 20px;
+  border: 0 none;
+}
+
+.footer__button:focus {
+  outline: 0 none;
+  border: 0 none;
+}
+
+.footer__button:focus-visible {
+  outline: 0 none;
+  box-shadow: 2px 2px 0 var(--main-color);
+}
+
+.floppy {
+  inline-size: 28px;
+}
+
+.core {
+  fill: var(--main-color);
+  opacity: 0;
+  transition: opacity .3s .03s, fill .3s .03s;
+}
+
+.main-body {
+  fill: var(--main-color);
+  opacity: 0;
+  transition: opacity .3s, fill .3s;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.card__icon-button:hover .main-body {
+  opacity: 1;
+  transition: opacity .3s .05s;
+}
+
+.card__icon-button:hover .core{
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--red);
+  transition: fill .3s .05s;
+}
+
+.card__icon-button:active .core{
+  fill: var(--red);
+  transition: fill .3s;
+}
+
+.is-liked .heart {
+  transform-origin: center;
+  animation: scaleBody .3s ease-in .1s 1 alternate;
+}
+
+.is-liked .main-body {
+  fill: var(--red);
+  opacity: 1;
+  transition: fill .3s .05s, opacity .3s .05s;
+}
+
+.is-liked .core {
+  fill: var(--red);
+  opacity: 1;
+  transition: fill .3s, opacity .3s;
+}
+
+.is-liked .contour {
+  fill: var(--red);
+  transition: fill .3s .06s;
+}
+
+.is-liked .sparks {
+  animation: sparksAnimate .3s ease-in .3s 1 alternate;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / .75);
+}
+
+.dialog {
+  max-inline-size: 355px;
+  border: 2px solid var(--main-color);
+  padding: 30px;
+  background-color: var(--bg-color);
+}
+
+.dialog__content {
+  display: flex;
+  gap: 20px;
+}
+
+.dialog__floppy {
+  inline-size: 56px;
+  color: var(--main-color);
+}
+
+.dialog__text {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: var(--title-weight);
+  color: var(--main-color);
+}
+
+.dialog__button {
+  margin-block-start: 30px;
+  inline-size: 100%;
+  padding: 12.5px 0px;
+  border: 2px solid var(--main-color);
+}
+
+@media (width >= 375px) {
+  
+  .footer__button {
+    flex-direction: row;
+  }
+
+}
+
+@media (width >= 686px) {
+  
+  .card__image {
+    block-size: 686px;
+  }
+
 }
 
 @keyframes arrow_movement {
   to {
     transform: translateX(4px);
+  }
+}
+
+@keyframes underline_animation {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes scaleBody {
+  to {
+    scale: 1.5;
+  }
+}
+
+@keyframes sparksAnimate {
+  to {
+    opacity: 1;
   }
 }
