@@ -11,7 +11,7 @@
   --floppy-color: var(--black);
   --bg-color: var(--white);
   --main-color: var(--black);
-  --bg: linear-gradient(#e7e7e7, transparent),
+  --bg-picure: linear-gradient(#e7e7e7, transparent),
     repeating-linear-gradient(
       var(--bg-color),
       var(--bg-color) 2px,

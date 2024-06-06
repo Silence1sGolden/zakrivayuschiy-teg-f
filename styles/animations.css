@@ -12,3 +12,35 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+.is-liked .heart {
+  animation: scaleBody 0.3s ease-in 0.1s 1 alternate;
+}
+
+.is-liked .sparks {
+  animation: sparksAnimate 0.3s ease-in 0.3s 1 alternate;
+}
+
+@keyframes arrowMovement {
+  to {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes underlineAnimation {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes scaleBody {
+  to {
+    scale: 1.5;
+  }
+}
+
+@keyframes sparksAnimate {
+  to {
+    opacity: 1;
+  }
+}

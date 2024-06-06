@@ -10,7 +10,7 @@
   --main-color: var(--black);
   --text-weight: 400;
   --title-weight: 700;
-  --bg: linear-gradient(#e7e7e7, transparent),
+  --bg-picure: linear-gradient(#e7e7e7, transparent),
     repeating-linear-gradient(
       var(--bg-color),
       var(--bg-color) 2px,
@@ -31,7 +31,7 @@
   --main-color: var(--green);
   --text-weight: 465;
   --title-weight: 785;
-  --bg: repeating-linear-gradient(
+  --bg-picure: repeating-linear-gradient(
       90deg,
       transparent,
       transparent 2px,
@@ -53,7 +53,7 @@
     --main-color: var(--black);
     --text-weight: 400;
     --title-weight: 700;
-    --bg: linear-gradient(#e7e7e7, transparent),
+    --bg-picure: linear-gradient(#e7e7e7, transparent),
       repeating-linear-gradient(
         var(--bg-color),
         var(--bg-color) 2px,
@@ -76,7 +76,7 @@
     --main-color: var(--green);
     --text-weight: 465;
     --title-weight: 785;
-    --bg: repeating-linear-gradient(
+    --bg-picure: repeating-linear-gradient(
         90deg,
         transparent,
         transparent 2px,
