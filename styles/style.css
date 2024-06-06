@@ -123,6 +123,7 @@ footer,
   text-transform: uppercase;
   color: var(--main-color);
   background-color: transparent;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:hover {
@@ -153,7 +154,7 @@ footer,
 }
 
 .theme-menu__button[disabled="true"] {
-  filter: opacity(60%);
+  opacity: 0.6;
 }
 
 .theme-menu__button[disabled="true"]::after {
@@ -183,10 +184,9 @@ footer,
 
 .card__picture {
   position: relative;
-  max-block-size: 686px;
+  block-size: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
   border-block-start: 2px solid var(--main-color);
   border-block-end: 2px solid var(--main-color);
-  overflow: hidden;
 }
 
 .card__image-title,
@@ -223,7 +223,7 @@ footer,
 
 .card__image {
   inline-size: 100%;
-  block-size: 100vw;
+  block-size: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -435,11 +435,5 @@ dialog::backdrop {
 @media (width >= 375px) {
   .footer__button {
     flex-direction: row;
-  }
-}
-
-@media (width >= 686px) {
-  .card__image {
-    block-size: 686px;
   }
 }
