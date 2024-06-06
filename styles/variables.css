@@ -11,7 +11,6 @@
   --floppy-color: var(--black);
   --bg-color: var(--white);
   --main-color: var(--black);
-  --pointer-theme: url(../images/pointer_animation_light.png);
   --bg: linear-gradient(#e7e7e7, transparent),
     repeating-linear-gradient(
       var(--bg-color),
