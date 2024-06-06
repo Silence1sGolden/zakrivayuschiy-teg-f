@@ -69,8 +69,14 @@
   background-image: var(--bg-picure);
 }
 
+.card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
 .header,
-footer,
+.save,
 .card {
   background-color: var(--bg-color);
   border: 2px solid var(--main-color);
@@ -85,20 +91,21 @@ footer,
   margin: 100px 0px;
 }
 
-.header__title {
-  margin-block-start: 120px;
+.header__title,
+.header__logo {
   font-family: "Press Start 2P", sans-serif;
-  font-size: 49px;
   text-transform: uppercase;
   color: var(--main-color);
 }
 
-.header__subtitle {
+.header__logo {
+  margin-block-start: 120px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__title {
   margin-block-start: 20px;
-  font-family: "Press Start 2P", sans-serif;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: var(--main-color);
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
 
 .header__theme-menu {
@@ -174,12 +181,9 @@ footer,
   max-inline-size: 696px;
 }
 
-.card:not(:last-of-type) {
-  margin-block-end: 52px;
-}
-
 .card__title {
   margin: 4px 10px 6px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
 }
 
 .card__picture {
@@ -370,11 +374,13 @@ footer,
   transition: fill 0.3s 0.06s;
 }
 
-.footer {
-  margin: 50px 0px 100px;
+.save {
+  margin: 50px auto 100px;
+  inline-size: 335px;
 }
 
-.footer__button {
+.save__button {
+  inline-size: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -387,12 +393,12 @@ footer,
   inline-size: 28px;
 }
 
-.footer__button:focus {
+.save__button:focus {
   outline: 0 none;
   border: 0 none;
 }
 
-.footer__button:focus-visible {
+.save__button:focus-visible {
   outline: 0 none;
   box-shadow: 2px 2px 0 var(--main-color);
 }
@@ -432,8 +438,9 @@ dialog::backdrop {
   border: 2px solid var(--main-color);
 }
 
-@media (width >= 375px) {
-  .footer__button {
+@media (width >= 1440px) {
+  .save__button {
     flex-direction: row;
+    inline-size: 335px;
   }
 }
